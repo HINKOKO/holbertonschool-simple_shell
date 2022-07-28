@@ -12,7 +12,7 @@
 size_t wordcount(char *s)
 {
 	size_t i = 0, w = 0;
-	int flag;
+	int flag = OUT;
 
 	while (s && s[i])
 	{
