@@ -32,15 +32,13 @@ size_t wordcount(char *s)
 	return (w);
 }
 
-int main(int ac, char **av, char **env)
+int main(int ac __attribute__((unused)), char **av, char **env)
 {
-	char *buff = NULL;
-	char **args = NULL;
+	char *buff = NULL, **args = NULL;
 	ssize_t nread = 0;
 	size_t read = 0;
-	pid_t child;
+	pid_t child = 0;
 
-	(void)ac;
 	(void)av;
 	(void)env;
 
@@ -49,7 +47,6 @@ int main(int ac, char **av, char **env)
 		printf("> ");
 		if ((nread = getline(&buff, &read, stdin)) != -1)
 		{
-			args = (char **)malloc(sizeof(char *) * (wordcount(buff) + 1));
 
 			child = fork();
 			if (child == 0)
@@ -58,12 +55,7 @@ int main(int ac, char **av, char **env)
 				if ((execve(args[0], args, env)) == -1)
 				{
 					perror(args[0]);
-					printf("no stuff like that");
 					exit(EXIT_FAILURE);
-				}
-				else
-				{
-					execve(args[0], args, env);
 				}
 			}
 			else if (child > 0)
@@ -72,14 +64,14 @@ int main(int ac, char **av, char **env)
 			}
 			else
 			{
-				perror("Failed to run\n");
 				free(buff);
-				exit(1);
+				return (1);
 			}
 		}
 		else
 		{
-			exit(EXIT_FAILURE);
+			free(buff);
+			return (1);
 		}
 	}
 	return (0);
