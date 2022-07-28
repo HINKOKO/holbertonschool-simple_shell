@@ -18,5 +18,6 @@ char **get_args(char *buff)
 		arg = strtok(NULL, " ");
 		i++;
 	}
-	return (0);
+	args[i] = NULL;
+	return (args);
 }
