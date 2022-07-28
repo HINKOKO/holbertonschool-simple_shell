@@ -1,7 +1,12 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "main.h"
+#include "wordcount.c"
+
+/**
+ * get_args - Function that creates token words
+ * @buff: is the buffer which get token
+ *
+ * Return: Tokens
+ */
 
 char **get_args(char *buff)
 {
