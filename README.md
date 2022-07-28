@@ -7,3 +7,30 @@
 </p>
 
 <h3 align="right">by Anthony Pizzony & Nehemie Mombanga<h3>
+
+#(Not so) Simple Shell 
+
+##Table of contents
+
+
+
+A brief description of what this project does and who it's for
+
+- Descrition 
+- File Structure
+- Requirements
+- Usage
+- Exemple of use 
+
+## Description 
+
+A UNIX-Shell is a command-line interpreter or "shell" that provides you a command-line
+user interface for Unix-like operating systems.
+The Shell is both an interactive and a scripting language.
+The first Shell was the "Thompson Shell", written by Ken Thompson at Bell Labs, distributed
+from 1971 to 1975.
+Ken Thompson developped his Shell version, associated with Dennis Ritchie, in the B programming
+language.
+After creating B, Ritchie and teammates moved to language C.
+
+
