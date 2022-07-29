@@ -13,7 +13,6 @@
 #include <sys/wait.h>
 
 /* Prototypes */
-size_t wordcount(char *s);
 
 char **get_args(char *buff);
 size_t wordcount(char *s);
