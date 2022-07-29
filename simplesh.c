@@ -1,33 +1,12 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include "main.h"
 
-size_t wordcount(char *s)
-{
-	size_t i = 0, w = 0;
-	int flag = OUT;
-
-	while (s && s[i])
-	{
-		if (s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
-		{
-			if (s[i] == '\n')
-				s[i] = '\0';
-			flag = OUT;
-		}
-		else if (flag == OUT)
-		{
-			flag = IN;
-			w++;
-		}
-		i++;
-	}
-	return (w);
-}
+/**
+ * main - simple shell
+ * @av: simple shell
+ * @env: simple shell
+ * @ac: simple shell
+ * Return: simple shell
+ */
 
 int main(int ac __attribute__((unused)), char **av, char **env)
 {
