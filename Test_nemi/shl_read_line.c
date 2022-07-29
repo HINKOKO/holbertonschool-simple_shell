@@ -1,10 +1,10 @@
 #include "main.h"
 
-char *shl_read_line()
+char *shl_read_line(void)
 {
 	size_t position = 0;
 	size_t buffSize = 32;
-	int characters = '\0';
+	unsigned int characters = '\0';
 	char *buffer = malloc(sizeof(char) * buffSize);
 
 	if (!buffer)
