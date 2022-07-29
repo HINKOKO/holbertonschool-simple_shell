@@ -14,6 +14,8 @@ char **get_args(char *buff)
 	int i = 0;
 
 	args = malloc(sizeof(char *) * (wordcount(buff) + 1));
+	if (!args)
+		return (NULL);
 	arg = strtok(buff, " ");
 
 	while (arg != NULL)
@@ -24,4 +26,18 @@ char **get_args(char *buff)
 	}
 	args[i] = NULL;
 	return (args);
+}
+
+void free_args(char **args)
+{
+	int i = 0;
+
+	if (args)
+	{
+		while (args[i])
+		{
+			free(args[i++]);
+		}
+		free(args);
+	}
 }

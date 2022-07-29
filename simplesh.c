@@ -42,16 +42,18 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 				else
 				{
 					free(buff);
+					free_args(args);
 					return (1);
 				}
 			}
 		}
 		else
 		{
-			free(args);
 			free(buff);
+			free_args(args);
 			return (0);
 		}
 	}
+
 	return (0);
 }

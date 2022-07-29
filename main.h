@@ -12,10 +12,9 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-/* Prototypes */
-
 char **get_args(char *buff);
 size_t wordcount(char *s);
 int main(int ac, char **av, char **env);
+void free_args(char **args);
 
 #endif
