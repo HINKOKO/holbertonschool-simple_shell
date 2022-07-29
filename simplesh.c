@@ -48,6 +48,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 		}
 		else
 		{
+			free(args);
 			free(buff);
 			return (0);
 		}
