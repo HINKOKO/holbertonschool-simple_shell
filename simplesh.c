@@ -6,9 +6,6 @@
 #include <sys/wait.h>
 #include "main.h"
 
-#define IN 1
-#define OUT 0
-
 size_t wordcount(char *s)
 {
 	size_t i = 0, w = 0;
@@ -45,9 +42,9 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 	while (1)
 	{
 		printf("> ");
-		if ((nread = getline(&buff, &read, stdin)) != -1)
+		nread = getline(&buff, &read, stdin);
+		if (nread != -1)
 		{
-
 			child = fork();
 			if (child == 0)
 			{
@@ -59,9 +56,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 				}
 			}
 			else if (child > 0)
-			{
 				wait(NULL);
-			}
 			else
 			{
 				free(buff);
@@ -74,5 +69,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 			return (1);
 		}
 	}
+	if (isatty(STDIN_FILENO) == 1)
+		write(STDOUT_FILENO, "\n", 1);
 	return (0);
 }
