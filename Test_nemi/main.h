@@ -10,6 +10,11 @@
 
 /* FUNCTIONS */
 void shl_loop();
+char *shl_read_line(void);
+char **shl_get_args();
+int shl_execute();
+
+
 
 
 #endif /* MAIN_H */

@@ -4,7 +4,7 @@ char *shl_read_line(void)
 {
 	size_t position = 0;
 	size_t buffSize = 32;
-	unsigned int characters = '\0';
+	int characters = 0;
 	char *buffer = malloc(sizeof(char) * buffSize);
 
 	if (!buffer)
@@ -17,7 +17,7 @@ char *shl_read_line(void)
 	{
 		/* read a character */
 		characters = getline(&buffer, &buffSize, stdin);
-		if (getline(&buffer, &buffSize, stdin) == -1)
+		if (characters == -1)
 			{
 				if (feof(stdin))
 					exit(EXIT_SUCCESS);
