@@ -11,8 +11,8 @@
 /* FUNCTIONS */
 void shl_loop();
 char *shl_read_line(void);
-char **shl_get_args();
-int shl_execute();
+char **shl_get_args(char *readLine);
+int shl_execute(char **args);
 
 
 
