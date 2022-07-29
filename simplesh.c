@@ -1,13 +1,5 @@
 #include "main.h"
 
-/**
- * main - simple shell
- * @av: simple shell
- * @env: simple shell
- * @ac: simple shell
- * Return: simple shell
- */
-
 int main(int ac __attribute__((unused)), char **av, char **env)
 {
 	char *buff = NULL, **args = NULL;
@@ -18,37 +10,38 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 	(void)av;
 	(void)env;
 
-	while (1)
 	{
-		printf("> ");
-		nread = getline(&buff, &read, stdin);
-		if (nread != -1)
+		while (1)
 		{
-			child = fork();
-			if (child == 0)
+			if (isatty(STDIN_FILENO))
+				printf("> ");
+			nread = getline(&buff, &read, stdin);
+			if (nread != -1)
 			{
-				args = get_args(buff);
-				if ((execve(args[0], args, env)) == -1)
+				child = fork();
+				if (child == 0)
 				{
-					perror(args[0]);
-					exit(EXIT_FAILURE);
+					args = get_args(buff);
+					if ((execve(args[0], args, env)) == -1)
+					{
+						perror(args[0]);
+						exit(EXIT_FAILURE);
+					}
+				}
+				else if (child > 0)
+					wait(NULL);
+				else
+				{
+					free(buff);
+					return (1);
 				}
 			}
-			else if (child > 0)
-				wait(NULL);
 			else
 			{
 				free(buff);
 				return (1);
 			}
 		}
-		else
-		{
-			free(buff);
-			return (1);
-		}
 	}
-	if (isatty(STDIN_FILENO) == 1)
-		write(STDOUT_FILENO, "\n", 1);
 	return (0);
 }
