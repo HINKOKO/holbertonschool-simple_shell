@@ -20,6 +20,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 
 	while (1)
 	{
+
 		if (isatty(STDIN_FILENO))
 			printf("> ");
 		nread = getline(&buff, &read, stdin);
@@ -46,14 +47,13 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 					return (1);
 				}
 			}
+			free_args(args);
 		}
 		else
 		{
 			free(buff);
-			free_args(args);
 			return (0);
 		}
 	}
-
 	return (0);
 }
