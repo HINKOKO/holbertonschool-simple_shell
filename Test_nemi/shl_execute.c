@@ -1,6 +1,6 @@
 #include "main.h"
 
-int main()
+int shl_execute()
 {
 	return (0);
 }
