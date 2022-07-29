@@ -3,7 +3,7 @@
 void shl_loop()
 {
 	char *readLine;
-	char **args;
+	char **args = 0;
 	int status;
 
 	do {
