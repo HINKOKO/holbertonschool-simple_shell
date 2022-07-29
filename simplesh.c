@@ -7,6 +7,7 @@
  * @ac: simple shell
  * Return: simple shell
  */
+
 int main(int ac __attribute__((unused)), char **av, char **env)
 {
 	char *buff = NULL, **args = NULL;
@@ -47,5 +48,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 			return (1);
 		}
 	}
+	if (isatty(STDIN_FILENO) == 1)
+		write(STDOUT_FILENO, "\n", 1);
 	return (0);
 }
