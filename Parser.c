@@ -1,5 +1,4 @@
 #include "main.h"
-#include "wordcount.c"
 
 /**
  * get_args - Function that creates token words
