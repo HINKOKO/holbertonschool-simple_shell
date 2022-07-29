@@ -25,22 +25,25 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 		nread = getline(&buff, &read, stdin);
 		if (nread != -1)
 		{
-			child = fork();
-			if (child == 0)
+			args = get_args(buff);
+			if (args[0])
 			{
-				args = get_args(buff);
-				if ((execve(args[0], args, env)) == -1)
+				child = fork();
+				if (child == 0)
 				{
-					perror(args[0]);
-					exit(EXIT_FAILURE);
+					if ((execve(args[0], args, env)) == -1)
+					{
+						perror(args[0]);
+						exit(EXIT_FAILURE);
+					}
 				}
-			}
-			else if (child > 0)
-				wait(NULL);
-			else
-			{
-				free(buff);
-				return (1);
+				else if (child > 0)
+					wait(NULL);
+				else
+				{
+					free(buff);
+					return (1);
+				}
 			}
 		}
 		else
