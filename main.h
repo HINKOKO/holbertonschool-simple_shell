@@ -20,6 +20,5 @@ int main(int ac, char **av, char **env);
 void free_args(char **args);
 void executor(char *buff, char **env);
 char *pathfinder(char *cmd, char *PATH);
-/*int executor(char **env);*/
 
 #endif
