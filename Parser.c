@@ -27,7 +27,10 @@ char **get_args(char *buff)
 	args[i] = NULL;
 	return (args);
 }
-
+/**
+ * free_args - freeing the space allocated for the array of args
+ * @args: array of args
+ */
 void free_args(char **args)
 {
 	int i = 0;
@@ -36,7 +39,8 @@ void free_args(char **args)
 	{
 		while (args[i])
 		{
-			free(args[i++]);
+			free(args[i]);
+			i++;
 		}
 		free(args);
 	}
