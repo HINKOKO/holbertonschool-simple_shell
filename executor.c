@@ -1,8 +1,9 @@
 #include "main.h"
 
 /**
- *
- *
+ *executor - exec the process
+ *@buff: command entered to be executed
+ *@env: the env in wich we exec commands
  */
 
 void executor(char *buff, char **env)
@@ -10,15 +11,10 @@ void executor(char *buff, char **env)
 	pid_t child;
 	char **args = NULL;
 	char *fullpath = NULL, *PATH;
+
 	args = get_args(buff);
 	if (args[0])
 	{
-		/**
-		 *(int)check_builtin(args[0], args, env)
-		 *if == 0
-		 *free(args)
-		 *return(SUCCESS)
-		 */
 		PATH = strdup(getenv("PATH"));
 		fullpath = pathfinder(args[0], PATH);
 		free(PATH);
@@ -27,7 +23,6 @@ void executor(char *buff, char **env)
 		{
 			if ((execve(fullpath, args, env)) == -1)
 			{
-				printf("hsh: %s: command not found\n", args[0]);
 				free_args(args);
 				free(fullpath);
 				return;
