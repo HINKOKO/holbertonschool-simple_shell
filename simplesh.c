@@ -27,8 +27,8 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 			if (buff)
 				free(buff);
 			if (feof(stdin))
-				exit(EXIT_FAILURE);
-			exit(EXIT_SUCCESS);
+				exit(EXIT_SUCCESS);
+			exit(EXIT_FAILURE);
 		}
 		else
 		{
