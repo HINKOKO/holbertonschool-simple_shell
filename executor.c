@@ -6,39 +6,31 @@
  *@env: the env in wich we exec commands
  */
 
-void executor(char *buff, char **env)
+int executor(char *buff, char **env)
 {
-	pid_t child;
+	int ret_path = 0;
 	char **args = NULL;
-	char *fullpath = NULL, *PATH;
+	int (*statifior)(char *cmd, char **args, char **env);
 
 	args = get_args(buff);
 	if (args[0])
 	{
-		PATH = strdup(getenv("PATH"));
-		fullpath = pathfinder(args[0], PATH);
-		free(PATH);
-		child = fork();
-		if (child == 0)
+		statifior = check_builtin(args[0]);
+		if (statifior != NULL)
 		{
-			if ((execve(fullpath, args, env)) == -1)
+			if (statifior(args[0], args, env) == 133)
 			{
 				free_args(args);
-				free(fullpath);
-				return;
+				return (133);
 			}
 		}
-
-		else if (child > 0)
-			wait(NULL);
 		else
 		{
+			ret_path = exec_path(args, env);
 			free_args(args);
-			free(fullpath);
-			exit(EXIT_FAILURE);
+			return (ret_path);
 		}
-		if (fullpath)
-			free(fullpath);
 	}
 	free_args(args);
+	return (0);
 }
