@@ -20,13 +20,26 @@ typedef struct built_in
 #include <sys/types.h>
 #include <sys/wait.h>
 
+/* Program Running commands */
+
+int executor(char *buff, char **env);
+int exec_path(char **args, char **env);
+char *pathfinder(char *cmd, char *PATH);
+
+/* Builtin helpers functions */
+
+int (*check_builtin(char *command))(char *cmd, char **args, char **env);
+int new_exit(char *cmd, char **args, char **env);
+int (*check_builtin(char *command))(char *cmd, char **args, char **env);
+
+/* Strings functions */
+
 char **get_args(char *buff);
 size_t wordcount(char *s);
 void free_args(char **args);
-int executor(char *buff, char **env);
-char *pathfinder(char *cmd, char *PATH);
-int new_exit(char *cmd, char **args, char **env);
-int (*check_builtin(char *command))(char *cmd, char **args, char **env);
-int exec_path(char **args, char **env);
+
+/* Env functions */
+
+int print_env(char *cmd, char **args, char **env);
 
 #endif
