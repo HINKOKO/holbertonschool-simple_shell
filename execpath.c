@@ -12,13 +12,12 @@ int exec_path(char **args, char **env)
 	pid_t child;
 	char *fullpath = NULL, *PATH;
 
-	PATH = strdup(getenv("PATH"));
+	PATH = getenv("PATH");
 	if (!PATH)
-	{
 		execve(args[0], args, env);
-	}
 	else
 	{
+		PATH = strdup(PATH);
 		fullpath = pathfinder(args[0], PATH);
 		free(PATH);
 		child = fork();
