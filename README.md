@@ -17,9 +17,9 @@
 A brief description of what this project does and who it's for
 
 - [Description](#description) 
-- File Structure
-- Requirements
-- Usage
+- [File Structure](#file-structure)
+- [Requirements](#requirements)
+- [Usage](#usage)
 - Exemple of use 
 
 ## Description 
@@ -35,8 +35,8 @@ After creating B, Ritchie and teammates moved to language C.
 
 ## File structure
 
-- [Authors]() - list of contributors to this project
-- [man_simple_shell]() - manual page for the simple_shell
+- [Authors](https://github.com/NehemieMbg/holbertonschool-simple_shell/blob/main/AUTHORS.md) - list of contributors to this project
+- [man_simple_shell](https://github.com/NehemieMbg/holbertonschool-simple_shell/blob/main/man_shell) - manual page for the simple_shell
 - [shell.h] - header program file
 - [builtins.c] - major builtin functions supported
           - check_builtins.c - check if user's command mathes a builtin

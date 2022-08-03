@@ -1,9 +1,9 @@
-<h1 align="center" style="color:#FFFFFF"> **Basically, the two following persons contributed to this project** <h1>
+<h1 align="center" style="color:#FFFFFF"> Basically, the two following persons contributed to this project <h1>
 
-Nehemie Mombamga: - 4993@holbertonstudents.com
+Nehemie Mombamga: - nehemie.mbg@gmail.com
 				  - https://github.com/NehemieMbg
 
-Anthony Pizzoni:  - 4984@holbertonstudents.com
+Anthony Pizzoni:  - piotr62@live.fr
 				  - https://github.com/HINKOKO
 
 
