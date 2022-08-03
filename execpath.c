@@ -13,6 +13,10 @@ int exec_path(char **args, char **env)
 	char *fullpath = NULL, *PATH;
 
 	PATH = strdup(getenv("PATH"));
+	if (!PATH)
+	{
+		execve(args[0], args, env);
+	}
 	fullpath = pathfinder(args[0], PATH);
 	free(PATH);
 	child = fork();
