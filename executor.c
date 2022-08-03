@@ -4,6 +4,7 @@
  *executor - exec the process
  *@buff: command entered to be executed
  *@env: the env in wich we exec commands
+ *Return: 0 for success
  */
 
 int executor(char *buff, char **env)
