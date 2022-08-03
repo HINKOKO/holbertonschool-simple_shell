@@ -42,6 +42,7 @@ int exec_path(char **args, char **env)
 			return (134);
 		}
 	}
-	free(fullpath);
+	if (fullpath)
+		free(fullpath);
 	return (0);
 }
