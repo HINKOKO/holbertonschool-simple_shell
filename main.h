@@ -6,6 +6,12 @@
 
 extern char **environ;
 
+typedef struct built_in
+{
+	char *command;
+	int (*f)(char *cmd, char **args, char **env);
+} built_in;
+
 /* Libraries */
 #include <stdio.h>
 #include <string.h>
@@ -16,9 +22,11 @@ extern char **environ;
 
 char **get_args(char *buff);
 size_t wordcount(char *s);
-int main(int ac, char **av, char **env);
 void free_args(char **args);
-void executor(char *buff, char **env);
+int executor(char *buff, char **env);
 char *pathfinder(char *cmd, char *PATH);
+int new_exit(char *cmd, char **args, char **env);
+int (*check_builtin(char *command))(char *cmd, char **args, char **env);
+int exec_path(char **args, char **env);
 
 #endif
