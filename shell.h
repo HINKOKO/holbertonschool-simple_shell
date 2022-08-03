@@ -30,7 +30,6 @@ char *pathfinder(char *cmd, char *PATH);
 
 int (*check_builtin(char *command))(char *cmd, char **args, char **env);
 int new_exit(char *cmd, char **args, char **env);
-int (*check_builtin(char *command))(char *cmd, char **args, char **env);
 
 /* Strings functions */
 
