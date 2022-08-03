@@ -13,6 +13,7 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 	char *buff = NULL;
 	ssize_t nread = 0;
 	size_t read = 0;
+	int ret = 0;
 
 	(void)av;
 
@@ -32,8 +33,12 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 		}
 		else
 		{
-			executor(buff, env);
+			ret = executor(buff, env);
 			free(buff);
+			if (ret == 133)
+				exit(EXIT_SUCCESS);
+			else if (ret == 134)
+				exit(EXIT_FAILURE);
 		}
 	}
 	return (0);
