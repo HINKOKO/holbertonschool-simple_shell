@@ -7,14 +7,19 @@
  *Return: 0 for success, 134 for exiting
  */
 
-int exec_path(char **args, char **env)
+int exec_path(char **args, char **env, int line)
 {
 	pid_t child;
 	char *fullpath = NULL, *PATH;
 
 	PATH = getenv("PATH");
-	if (!PATH)
-		execve(args[0], args, env);
+
+	if (!PATH && (execve(args[0], args, env)) == -1)
+	{
+		printf("./hsh: %d: %s: not found\n", line, args[0]);
+		free(fullpath);
+		return (134);
+	}
 	else
 	{
 		PATH = strdup(PATH);
@@ -25,9 +30,7 @@ int exec_path(char **args, char **env)
 		{
 			if ((execve(fullpath, args, env)) == -1)
 			{
-				write(STDERR_FILENO, "hsh: ", 6);
-				write(STDERR_FILENO, args[0], strlen(args[0]));
-				write(STDERR_FILENO, ": not found\n", 13);
+				printf("./hsh: %d: %s: not found\n", line, args[0]);
 				free(fullpath);
 				return (134);
 			}

@@ -7,7 +7,7 @@
  *Return: 0 for success
  */
 
-int executor(char *buff, char **env)
+int executor(char *buff, char **env, int line)
 {
 	int ret_path = 0;
 	char **args = NULL;
@@ -27,7 +27,7 @@ int executor(char *buff, char **env)
 		}
 		else
 		{
-			ret_path = exec_path(args, env);
+			ret_path = exec_path(args, env, line);
 			free_args(args);
 			return (ret_path);
 		}

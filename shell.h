@@ -22,8 +22,8 @@ typedef struct built_in
 
 /* Program Running commands */
 
-int executor(char *buff, char **env);
-int exec_path(char **args, char **env);
+int executor(char *buff, char **env, int line);
+int exec_path(char **args, char **env, int line);
 char *pathfinder(char *cmd, char *PATH);
 
 /* Builtin helpers functions */
