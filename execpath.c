@@ -17,27 +17,30 @@ int exec_path(char **args, char **env)
 	{
 		execve(args[0], args, env);
 	}
-	fullpath = pathfinder(args[0], PATH);
-	free(PATH);
-	child = fork();
-	if (child == 0)
+	else
 	{
-		if ((execve(fullpath, args, env)) == -1)
+		fullpath = pathfinder(args[0], PATH);
+		free(PATH);
+		child = fork();
+		if (child == 0)
 		{
-			write(STDERR_FILENO, "hsh: ", 6);
-			write(STDERR_FILENO, args[0], strlen(args[0]));
-			write(STDERR_FILENO, ": not found\n", 13);
+			if ((execve(fullpath, args, env)) == -1)
+			{
+				write(STDERR_FILENO, "hsh: ", 6);
+				write(STDERR_FILENO, args[0], strlen(args[0]));
+				write(STDERR_FILENO, ": not found\n", 13);
+				free(fullpath);
+				return (134);
+			}
+		}
+
+		else if (child > 0)
+			wait(NULL);
+		else
+		{
 			free(fullpath);
 			return (134);
 		}
-	}
-
-	else if (child > 0)
-		wait(NULL);
-	else
-	{
-		free(fullpath);
-		return (134);
 	}
 	free(fullpath);
 	return (0);
