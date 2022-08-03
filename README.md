@@ -8,15 +8,15 @@
 
 <h3 align="right">by Anthony Pizzony & Nehemie Mombanga<h3>
 
-#(Not so) Simple Shell 
+# (Not so) Simple Shell 
 
-##Table of contents
+## Table of contents
 
 
 
 A brief description of what this project does and who it's for
 
-- Descrition 
+- [Descrition](#description) 
 - File Structure
 - Requirements
 - Usage
@@ -32,5 +32,26 @@ from 1971 to 1975.
 Ken Thompson developped his Shell version, associated with Dennis Ritchie, in the B programming
 language.
 After creating B, Ritchie and teammates moved to language C.
+
+## File structure
+
+- [Authors]() - list of contributors to this project
+- [man_simple_shell]() - manual page for the simple_shell
+- [shell.h] - header program file
+- [builtins.c] - major builtin functions supported
+          - check_builtins.c - check if user's command mathes a builtin
+          - new_exit - exits the shell
+          - _env - prints the shell environnement's variable to standard output
+          -
+
+
+
+
+## Requirements
+
+Simple shell project was compiled on Ubuntu 20.04 LTS using gcc compiler, with following options <br>
+
+>>>>>>>>>>gcc -Wall -Werror Wextra -pedantic -std=gnu89
+
 
 
