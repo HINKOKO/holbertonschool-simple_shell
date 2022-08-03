@@ -1,8 +1,10 @@
 #include "main.h"
 
 /**
- * @brief
- *
+ *exec_path - search command along the PATH and execute it
+ *@args: array of arguments passed to stdin
+ *@env: array of strings of env
+ *Return: 0 for success, 134 for exiting
  */
 
 int exec_path(char **args, char **env)
@@ -21,7 +23,6 @@ int exec_path(char **args, char **env)
 			write(STDERR_FILENO, "hsh: ", 6);
 			write(STDERR_FILENO, args[0], strlen(args[0]));
 			write(STDERR_FILENO, ": not found\n", 13);
-			free_args(args);
 			free(fullpath);
 			return (134);
 		}
@@ -31,7 +32,6 @@ int exec_path(char **args, char **env)
 		wait(NULL);
 	else
 	{
-		free_args(args);
 		free(fullpath);
 		return (134);
 	}

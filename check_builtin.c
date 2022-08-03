@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- *
- *
- *
+ *check_builtin - function for checking
+ *if a builtin exist
+ *@command: command entered by user
+ *Return: NULL if no builtin, or the right function if builtin is found
  */
 
 int (*check_builtin(char *command))(char *cmd, char **args, char **env)
