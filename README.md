@@ -16,7 +16,7 @@
 
 A brief description of what this project does and who it's for
 
-- [Descrition](#description) 
+- [Description](#description) 
 - File Structure
 - Requirements
 - Usage
@@ -51,7 +51,7 @@ After creating B, Ritchie and teammates moved to language C.
 
 Simple shell project was compiled on Ubuntu 20.04 LTS using gcc compiler, with following options <br>
 
->>>>>>>>>>gcc -Wall -Werror Wextra -pedantic -std=gnu89
+              gcc -Wall -Werror Wextra -pedantic -std=gnu89
 
 
 
