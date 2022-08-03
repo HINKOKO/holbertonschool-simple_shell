@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  *new_exit - function for exiting the program

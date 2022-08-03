@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  * wordcount - Function that create word token

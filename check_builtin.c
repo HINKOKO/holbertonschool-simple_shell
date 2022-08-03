@@ -1,4 +1,4 @@
-#include "main.h"
+#include "shell.h"
 
 /**
  *check_builtin - function for checking
