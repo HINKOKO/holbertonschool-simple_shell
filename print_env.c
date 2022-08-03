@@ -1,9 +1,11 @@
 #include "main.h"
 
 /**
- *main - prints the environnement using
- *global variable environ
- *Return: Always 0
+ *print_env - prints the current environment
+ *@cmd: command inputed by user
+ *@args: array of arguments
+ *@env: array of strings of the env
+ *Return: always 0 (success)
  */
 
 int print_env(char *cmd, char **args, char **env)
