@@ -4,6 +4,8 @@
  *executor - exec the process
  *@buff: command entered to be executed
  *@env: the env in wich we exec commands
+ *@line: integer for counting the lines inputed
+ * usefull for indicating where an error occurs
  *Return: 0 for success
  */
 

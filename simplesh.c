@@ -19,8 +19,8 @@ int main(int ac __attribute__((unused)), char **av, char **env)
 
 	while (1)
 	{
-		if (isatty(STDIN_FILENO))
-			printf("> ");
+		_prompt();
+		signal(SIGINT, handle_signal);
 		buff = NULL;
 		nread = getline(&buff, &read, stdin);
 		if (nread == -1)

@@ -4,6 +4,8 @@
  *exec_path - search command along the PATH and execute it
  *@args: array of arguments passed to stdin
  *@env: array of strings of env
+ *@line: integer for counting the lines inputed
+ * usefull for indicating where an error occurs
  *Return: 0 for success, 134 for exiting
  */
 

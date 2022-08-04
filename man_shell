@@ -4,11 +4,11 @@
 .hy
 .SH NAME
 .PP
-\f[B]\f[BI]Simple Shell\f[B]\f[R] \- Holberton\[cq]s school team project
-for creating a minimalistic command line interpreter written in C
+\f[B]Simple Shell\f[R] \- Holberton\[cq]s school team project for
+creating a minimalistic command line interpreter written in C
 .SH SYNOPSIS
 .PP
-\f[B]\f[BI]./hsh\f[B]\f[R]
+\f[B]./hsh\f[R]
 .SH DESCRIPTION
 .PP
 \f[B]Simple Shell\f[R] is a Holberton\[cq]s school team project for
@@ -25,8 +25,10 @@ Compile the Simple Shell using \[lq]gcc\[rq] with the options shown
 below:
 .PP
 \ \ \ \ \ gcc \[en]Wall \-Werror \-Wextra \-pedantic \-std=gnu89 *.c \-o
-hsh Note the use of the wildcard \[lq]*\[rq] which will compile all the
-C programs concurrently.
+hsh
+.PP
+Note the use of the wildcard \[lq]*\[rq] which will compile all the C
+programs concurrently.
 .PP
 Simple Shell can be run in two modes, Interactive and Non\-Interactive.
 The Interactive is run by entering the below command in your terminal
