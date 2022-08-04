@@ -20,7 +20,7 @@ A brief description of what this project does and who it's for
 - [File Structure](#file-structure)
 - [Requirements](#requirements)
 - [Usage](#usage)
-- [Exemple of use](#example-of-useex)
+- [Exemple of use](#example-of-use)
 - [Authors](#authors)
 - [License](#license)
 
